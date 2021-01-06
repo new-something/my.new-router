@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "my-new-router"
+  "defaultProject": "my-new-router",
+  "cli": {
+    "analytics": "9c037572-e1c7-4cbc-94d6-2001137f25dc"
+  }
 }
