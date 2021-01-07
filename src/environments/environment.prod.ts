@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  dashboard: 'https://master.d1et269uohw2tu.amplifyapp.com'
 };
