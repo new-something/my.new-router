@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../environments/environment';
+import {AuthService} from './service/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,20 @@ import {environment} from '../environments/environment';
 export class AppComponent implements OnInit{
   private dashboardUrl = environment.dashboard;
 
+  constructor(private authService: AuthService) {}
+
   ngOnInit(): void {
+    // my.new 도메인 입력하며 방문 시 로그인 되어 있다면, dashboard 로 이동시킨다.
+    let authenticated = false;
+    this.authService.isAuthenticated().subscribe(auth => {
+      authenticated = auth;
+    });
+
+    if (authenticated) {
+      window.location.href = this.dashboardUrl;
+      return;
+    }
+
     // my.new 도메인 입력하여 방문 시 로그인 되어있지 않은 사용자가 바로 로그인하게 유도한다 (구글 .new 도메인 정책)
     this.openSignInPopup();
   }
@@ -23,9 +37,6 @@ export class AppComponent implements OnInit{
   }
 
   changeDestination(event: any): void {
-    console.log('호출 되냐?');
-    console.log(event);
-    console.log(event.target.value);
     const button = document.getElementById('buttonOpenInNewTab');
     button.setAttribute('href', '/' + event.target.value);
   }
