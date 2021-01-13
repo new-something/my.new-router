@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ActivatedRoute, Router} from '@angular/router';
-import {JwtHelperService} from '@auth0/angular-jwt';
+import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../../environments/environment';
 
 @Component({
@@ -12,9 +11,7 @@ import {environment} from '../../../environments/environment';
 export class GithubSignInComponent implements OnInit {
   private userService: string = environment.userService;
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute,
-              private jwtHelperService: JwtHelperService, private router: Router) {
-  }
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     let code = '';
