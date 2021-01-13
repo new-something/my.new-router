@@ -18,9 +18,6 @@ export class AppComponent implements OnInit{
     });
 
     if (authenticated) {
-      console.log(document.cookie);
-      alert('인증 되었소!');
-      // window.location.href = this.dashboardUrl;
       return;
     }
 
