@@ -30,7 +30,7 @@ export class GithubSignInComponent implements OnInit {
         localStorage.setItem('my-new-a', resp.jwt);
         document.cookie = 'my-new-a=' + resp.jwt;
         console.log('cookie 가 set 되어야 된다구...');
-        this.router.navigate(['']).catch(err => console.log(err));
+        // this.router.navigate(['']).catch(err => console.log(err));
       })
       .catch(err => console.log(err));
   }
