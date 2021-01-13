@@ -1,14 +1,17 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {JwtModule} from '@auth0/angular-jwt';
 
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {RedirectLoadingComponent} from './components/redirect-loading/redirect-loading.component';
+import {GithubSignInComponent} from './components/github-sign-in/github-sign-in.component';
 import {PathConcatComponent} from './components/path-concater/path-concat.component';
 import {GuardService} from './service/auth/guard.service';
 
 const routes: Routes = [
   {path: '', component: AppComponent, canActivate: [GuardService]},
+  {path: 's/github', component: GithubSignInComponent},
   {path: 'loading/:service', component: RedirectLoadingComponent},
   {path: '**', component: PathConcatComponent}
 ];
@@ -17,11 +20,19 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     RedirectLoadingComponent,
-    PathConcatComponent
+    PathConcatComponent,
+    GithubSignInComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('my-new-a');
+        }
+      },
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

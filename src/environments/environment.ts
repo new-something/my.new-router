@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  userService: 'http://localhost:8080',
   dashboard: 'http://localhost:4300'
 };
 

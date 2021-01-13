@@ -42,6 +42,7 @@ export class AppComponent implements OnInit{
   }
 
   startSignIn(): void {
-    window.location.href = this.dashboardUrl;
+    window.location.href = 'https://github.com/login/oauth/authorize?scope=read:user&client_id=6d91f0584d549619c938';
+    // window.location.href = this.dashboardUrl;
   }
 }

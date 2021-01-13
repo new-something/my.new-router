@@ -9,6 +9,7 @@ export class AuthService {
   constructor() { }
 
   isAuthenticated(): Observable<boolean> {
+    alert(document.cookie);
     const session = localStorage.getItem('my-new-a');
     return new Observable<boolean>(subscriber => {
       subscriber.next(!!session);
