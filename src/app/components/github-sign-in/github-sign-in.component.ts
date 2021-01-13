@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import {JwtHelperService} from '@auth0/angular-jwt';
 
@@ -12,7 +12,8 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 export class GithubSignInComponent implements OnInit {
   private userService: string = environment.userService;
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private jwtHelperService: JwtHelperService) {}
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute,
+              private jwtHelperService: JwtHelperService, private router: Router) {}
 
   ngOnInit(): void {
     let code = '';
@@ -32,7 +33,7 @@ export class GithubSignInComponent implements OnInit {
         console.log(cookieText);
         document.cookie = cookieText;
         console.log('cookie 가 set 되어야 된다구...');
-        // this.router.navigate(['']).catch(err => console.log(err));
+        this.router.navigate(['']).catch(err => console.log(err));
       })
       .catch(err => console.log(err));
   }

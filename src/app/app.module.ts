@@ -9,6 +9,7 @@ import {RedirectLoadingComponent} from './components/redirect-loading/redirect-l
 import {GithubSignInComponent} from './components/github-sign-in/github-sign-in.component';
 import {PathConcatComponent} from './components/path-concater/path-concat.component';
 import {GuardService} from './service/auth/guard.service';
+import { CookieService } from 'ngx-cookie-service';
 
 const routes: Routes = [
   {path: '', component: AppComponent, canActivate: [GuardService]},
@@ -36,7 +37,7 @@ const routes: Routes = [
       },
     })
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
