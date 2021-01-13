@@ -15,7 +15,6 @@ export class GuardService implements CanActivate {
   // 인증이 되어 있는 경우, dashboard service 로 redirect 시킨다.
   // 인증이 되어 있지 않은 경우, landing 에 머무른다.
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    console.log(document.cookie);
     let goDashboardService = false;
     this.authService.isAuthenticated().subscribe(auth => {
       goDashboardService = auth;
