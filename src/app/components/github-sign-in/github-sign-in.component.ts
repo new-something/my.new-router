@@ -28,7 +28,9 @@ export class GithubSignInComponent implements OnInit {
         const decodeToken = this.jwtHelperService.decodeToken(resp.jwt);
         console.log(decodeToken);
         localStorage.setItem('my-new-a', resp.jwt);
-        document.cookie = 'my-new-a=' + resp.jwt + ';;path=\'/\';domain=my.new;max-age=259200;secure;SameSite=Lax';
+        const cookieText = 'my-new-a=' + resp.jwt + ';path=/;domain=my.new;max-age=15552000;secure;SameSite=Lax';
+        console.log(cookieText);
+        document.cookie = cookieText;
         console.log('cookie 가 set 되어야 된다구...');
         // this.router.navigate(['']).catch(err => console.log(err));
       })
