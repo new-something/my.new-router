@@ -8,8 +8,6 @@ import {AuthService} from './service/auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  private dashboardUrl = environment.dashboard;
-
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
