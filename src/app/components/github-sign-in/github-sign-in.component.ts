@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../../environments/environment';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-github-sign-in',
@@ -11,7 +12,7 @@ import {environment} from '../../../environments/environment';
 export class GithubSignInComponent implements OnInit {
   private userService: string = environment.userService;
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute) {}
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private jwtHelperService: JwtHelperService) {}
 
   ngOnInit(): void {
     let code = '';
@@ -24,9 +25,12 @@ export class GithubSignInComponent implements OnInit {
     this.httpClient.get<LoginCompleteResponse>(this.userService + '/github/login/complete?code=' + code).toPromise()
       .then(resp => {
         console.log(resp.jwt);
+        const decodeToken = this.jwtHelperService.decodeToken(resp.jwt);
+        console.log(decodeToken);
         localStorage.setItem('my-new-a', resp.jwt);
-        document.cookie = 'my-new-a=' + resp.jwt;
+        document.cookie = 'my-new-a=' + resp.jwt + 'domain=my.new;';
         console.log('cookie 가 set 되어야 된다구...');
+        console.log(JSON.parse(decodeToken));
         // this.router.navigate(['']).catch(err => console.log(err));
       })
       .catch(err => console.log(err));

@@ -19,10 +19,10 @@ export class GuardService implements CanActivate{
       goDashboardService = auth;
     });
 
-    // if (goDashboardService) {
-    //   this.router.navigate([this.dashboardUrl]).catch(err => console.log(err));
-    // }
+    if (goDashboardService) {
+      this.router.navigate([this.dashboardUrl]).catch(err => console.log(err));
+    }
 
-    return true;
+    return goDashboardService;
   }
 }
