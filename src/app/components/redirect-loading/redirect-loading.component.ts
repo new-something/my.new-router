@@ -19,8 +19,9 @@ export class RedirectLoadingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const path = this.router.url.substr(1);
     if (this.authService.isAuthenticated()) {
-      const url = this.appService + '/apis/users/destinations?keyword=' + this.router.url;
+      const url = this.appService + '/apis/users/destinations?keyword=' + path;
       const headers = new HttpHeaders()
         .set('Authorization', 'Bearer ' + localStorage.getItem('my-new-a'));
       this.httpClient.get<DestinationResponse>(url, {headers}).subscribe(
@@ -38,10 +39,10 @@ export class RedirectLoadingComponent implements OnInit {
       return;
     }
 
-    console.log(this.router.url);
-    console.log(this.trialRouteService.has(this.router.url));
-    console.log(this.trialRouteService.get(this.router.url));
-    const destination = this.trialRouteService.get(this.router.url);
+    console.log(path);
+    console.log(this.trialRouteService.has(path));
+    console.log(this.trialRouteService.get(path));
+    const destination = this.trialRouteService.get(path);
     if (destination) {
       console.log('존재한다.');
       window.location.href = destination;
