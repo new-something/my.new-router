@@ -19,36 +19,33 @@ export class RedirectLoadingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      if (this.authService.isAuthenticated()) {
-        const url = this.appService + '/apis/users/destinations?keyword=' + params;
-        const headers = new HttpHeaders()
-          .set('Authorization', 'Bearer ' + localStorage.getItem('my-new-a'));
-        this.httpClient.get<DestinationResponse>(url, {headers}).subscribe(
-          resp => {
-            window.location.href = resp.destination;
-          },
-          err => {
-            console.log(err);
-            if (err.status === 401) {
-              this.router.navigate(['/s/logout']).catch(rError => console.log(rError));
-            }
+    if (this.authService.isAuthenticated()) {
+      const url = this.appService + '/apis/users/destinations?keyword=' + this.router.url;
+      const headers = new HttpHeaders()
+        .set('Authorization', 'Bearer ' + localStorage.getItem('my-new-a'));
+      this.httpClient.get<DestinationResponse>(url, {headers}).subscribe(
+        resp => {
+          window.location.href = resp.destination;
+        },
+        err => {
+          console.log(err);
+          if (err.status === 401) {
+            this.router.navigate(['/s/logout']).catch(rError => console.log(rError));
           }
-        );
+        }
+      );
 
-        return;
-      }
+      return;
+    }
 
-      console.log(params);
-      console.log(params.service);
-      console.log(this.trialRouteService.has(params.service));
-      console.log(this.trialRouteService.get(params.service));
-      const destination = this.trialRouteService.get(params.service);
-      if (destination) {
-        console.log('존재한다.');
-        window.location.href = destination;
-      }
-    });
+    console.log(this.router.url);
+    console.log(this.trialRouteService.has(this.router.url));
+    console.log(this.trialRouteService.get(this.router.url));
+    const destination = this.trialRouteService.get(this.router.url);
+    if (destination) {
+      console.log('존재한다.');
+      window.location.href = destination;
+    }
   }
 }
 
