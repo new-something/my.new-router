@@ -7,7 +7,6 @@ import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {RedirectLoadingComponent} from './components/redirect-loading/redirect-loading.component';
 import {GithubSignInComponent} from './components/github-sign-in/github-sign-in.component';
-import {PathConcatComponent} from './components/path-concater/path-concat.component';
 import {GuardService} from './service/auth/guard.service';
 import { SingleSignOutComponent } from './components/single-sign-out/single-sign-out.component';
 
@@ -15,15 +14,13 @@ const routes: Routes = [
   {path: '', component: AppComponent, canActivate: [GuardService]},
   {path: 's/github', component: GithubSignInComponent},
   {path: 's/logout', component: SingleSignOutComponent},
-  {path: 'loading/:service', component: RedirectLoadingComponent},
-  {path: '**', component: PathConcatComponent}
+  {path: '**', component: RedirectLoadingComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     RedirectLoadingComponent,
-    PathConcatComponent,
     GithubSignInComponent,
     SingleSignOutComponent
   ],

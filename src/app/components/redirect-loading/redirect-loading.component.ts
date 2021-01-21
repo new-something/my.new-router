@@ -21,7 +21,7 @@ export class RedirectLoadingComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       if (this.authService.isAuthenticated()) {
-        const url = this.appService + '/apis/users/destinations?keyword=' + params.service;
+        const url = this.appService + '/apis/users/destinations?keyword=' + params;
         const headers = new HttpHeaders()
           .set('Authorization', 'Bearer ' + localStorage.getItem('my-new-a'));
         this.httpClient.get<DestinationResponse>(url, {headers}).subscribe(
