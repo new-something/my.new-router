@@ -12,6 +12,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class RedirectLoadingComponent implements OnInit {
   private appService = environment.appService;
+  private shortcut = environment.shortcut;
   history: string[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private trialRouteService: TrialRouteService, private authService: AuthService,
@@ -32,6 +33,11 @@ export class RedirectLoadingComponent implements OnInit {
           console.log(err);
           if (err.status === 401) {
             this.router.navigate(['/s/logout']).catch(rError => console.log(rError));
+          }
+
+          if (err.status === 400) {
+            alert(err.error.message + ', now, we are go to dashboard.');
+            window.location.href = this.shortcut;
           }
         }
       );
