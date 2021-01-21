@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TrialRouteService} from '../../service/routes/trial-route.service';
 import {AuthService} from '../../service/auth/auth.service';
 import {environment} from '../../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-redirect-loading',
@@ -14,20 +14,25 @@ export class RedirectLoadingComponent implements OnInit {
   private appService = environment.appService;
   history: string[] = [];
 
-  constructor(private router: ActivatedRoute, private trialRouteService: TrialRouteService, private authService: AuthService,
-              private httpClient: HttpClient) {
+  constructor(private activatedRoute: ActivatedRoute, private trialRouteService: TrialRouteService, private authService: AuthService,
+              private httpClient: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.router.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(params => {
       if (this.authService.isAuthenticated()) {
         const url = this.appService + '/apis/users/destinations?keyword=' + params.service;
-        this.httpClient.get<DestinationResponse>(url).subscribe(
+        const headers = new HttpHeaders()
+          .set('Authorization', 'Bearer ' + localStorage.getItem('my-new-a'));
+        this.httpClient.get<DestinationResponse>(url, {headers}).subscribe(
           resp => {
             window.location.href = resp.destination;
           },
           err => {
             console.log(err);
+            if (err.status === 401) {
+              this.router.navigate(['/s/logout']).catch(rError => console.log(rError));
+            }
           }
         );
 
