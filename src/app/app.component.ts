@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {environment} from '../environments/environment';
 import {AuthService} from './service/auth/auth.service';
 
 @Component({
@@ -11,16 +10,6 @@ export class AppComponent implements OnInit{
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    // my.new 도메인 입력하며 방문 시 로그인 되어 있다면, dashboard 로 이동시킨다.
-    let authenticated = false;
-    this.authService.isAuthenticated().subscribe(auth => {
-      authenticated = auth;
-    });
-
-    if (authenticated) {
-      return;
-    }
-
     // my.new 도메인 입력하여 방문 시 로그인 되어있지 않은 사용자가 바로 로그인하게 유도한다 (구글 .new 도메인 정책)
     this.openSignInPopup();
   }

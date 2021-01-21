@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TrialRouteService} from '../../service/routes/trial-route.service';
+import {AuthService} from '../../service/auth/auth.service';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-redirect-loading',
@@ -8,13 +11,29 @@ import {TrialRouteService} from '../../service/routes/trial-route.service';
   styleUrls: ['./redirect-loading.component.css']
 })
 export class RedirectLoadingComponent implements OnInit {
+  private appService = environment.appService;
   history: string[] = [];
 
-  constructor(private router: ActivatedRoute, private trialRouteService: TrialRouteService) {
+  constructor(private router: ActivatedRoute, private trialRouteService: TrialRouteService, private authService: AuthService,
+              private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
+      if (this.authService.isAuthenticated()) {
+        const url = this.appService + '/apis/users/destinations?keyword=' + params.service;
+        this.httpClient.get<DestinationResponse>(url).subscribe(
+          resp => {
+            window.location.href = resp.destination;
+          },
+          err => {
+            console.log(err);
+          }
+        );
+
+        return;
+      }
+
       console.log(params);
       console.log(params.service);
       console.log(this.trialRouteService.has(params.service));
@@ -26,4 +45,8 @@ export class RedirectLoadingComponent implements OnInit {
       }
     });
   }
+}
+
+interface DestinationResponse {
+  destination: string;
 }
