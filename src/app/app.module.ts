@@ -9,9 +9,10 @@ import {RedirectLoadingComponent} from './components/redirect-loading/redirect-l
 import {GithubSignInComponent} from './components/github-sign-in/github-sign-in.component';
 import {GuardService} from './service/auth/guard.service';
 import { SingleSignOutComponent } from './components/single-sign-out/single-sign-out.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
-  {path: '', component: AppComponent, canActivate: [GuardService]},
+  {path: '', component: LandingComponent, canActivate: [GuardService]},
   {path: 's/github', component: GithubSignInComponent},
   {path: 's/logout', component: SingleSignOutComponent},
   {path: '**', component: RedirectLoadingComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     RedirectLoadingComponent,
     GithubSignInComponent,
-    SingleSignOutComponent
+    SingleSignOutComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
