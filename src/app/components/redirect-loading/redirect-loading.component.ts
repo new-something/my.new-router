@@ -45,14 +45,15 @@ export class RedirectLoadingComponent implements OnInit {
       return;
     }
 
-    console.log(path);
-    console.log(this.trialRouteService.has(path));
-    console.log(this.trialRouteService.get(path));
     const destination = this.trialRouteService.get(path);
     if (destination) {
       console.log('존재한다.');
       window.location.href = destination;
+      return;
     }
+
+    alert(`There is no destination for ${path}`);
+    this.router.navigate(['']).catch(err => console.log(err));
   }
 }
 
