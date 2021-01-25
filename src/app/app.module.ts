@@ -10,10 +10,12 @@ import {GithubSignInComponent} from './components/github-sign-in/github-sign-in.
 import {GuardService} from './service/auth/guard.service';
 import { SingleSignOutComponent } from './components/single-sign-out/single-sign-out.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { GoogleSignInComponent } from './components/google-sign-in/google-sign-in.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent, canActivate: [GuardService]},
   {path: 's/github', component: GithubSignInComponent},
+  {path: 's/google', component: GoogleSignInComponent},
   {path: 's/logout', component: SingleSignOutComponent},
   {path: '**', component: RedirectLoadingComponent},
 ];
@@ -24,7 +26,8 @@ const routes: Routes = [
     RedirectLoadingComponent,
     GithubSignInComponent,
     SingleSignOutComponent,
-    LandingComponent
+    LandingComponent,
+    GoogleSignInComponent
   ],
   imports: [
     BrowserModule,
