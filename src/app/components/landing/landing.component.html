@@ -3,17 +3,17 @@
   <div class="modal-popup">
     <div class="popup-header">
       <div>
-        <img src="/assets/img-key.png" alt="sign in emoji" style="width: 20px;" />
+        <img src="/assets/img-key.png" alt="sign in emoji" style="width: 20px;"/>
         &nbsp;Sign In
       </div>
       <div class="btn btn-close" (click)="closeSignInPopup()">
-        <img src="/assets/ico-close.svg" alt="close" width="16" />
+        <img src="/assets/ico-close.svg" alt="close" width="16"/>
       </div>
     </div>
     <div class="popup-body">
       <div class="signin-banner"></div>
-      <div class="signin-buttons" (click)="startSignIn()">
-        <a href="#">
+      <div class="signin-buttons">
+        <a href="#" (click)="startGithubSignIn()">
           <div class="btn btn-signin-github">
             <img
               src="/assets/app-icons/ico-app-github.svg"
@@ -23,16 +23,16 @@
             Sign in with Github Account
           </div>
         </a>
-        <!--        <a href="#">-->
-        <!--          <div class="btn btn-signin-google">-->
-        <!--            <img-->
-        <!--              src="/assets/app-icons/ico-app-google.svg"-->
-        <!--              alt="google"-->
-        <!--              width="32"-->
-        <!--            />-->
-        <!--            Sign in with Google Account-->
-        <!--          </div>-->
-        <!--        </a>-->
+        <a href="#" (click)="startGoogleSignIn()">
+          <div class="btn btn-signin-google">
+            <img
+              src="/assets/app-icons/ico-app-google.svg"
+              alt="google"
+              width="32"
+            />
+            Sign in with Google Account
+          </div>
+        </a>
       </div>
       <div class="signin-policies">
         By signing in, you agree to our
@@ -55,7 +55,7 @@
   <header class="page-header">
     <a href="./index.html">
       <div class="page-header-brand logo">
-        <img src="/assets/logo.svg" alt="logo" /><span class="logo-title"
+        <img src="/assets/logo.svg" alt="logo"/><span class="logo-title"
       >my.new</span
       >
       </div>
@@ -75,7 +75,7 @@
           class="btn"
           (click)="openSignInPopup()"
         >
-          <img src="/assets/img-key.png" style="width: 16px" alt="" />
+          <img src="/assets/img-key.png" style="width: 16px" alt=""/>
           <span>
                 Sign In
               </span>
@@ -88,14 +88,14 @@
       <h1>
         .new
         <span>,</span>
-        <br />
+        <br/>
         <span>
-              but it’s a personalized <br />
+              but it’s a personalized <br/>
               action-based URL for everyone.
             </span>
       </h1>
       <p>
-        Now, You don't need to rummage the unorganized bookmarks menu <br />
+        Now, You don't need to rummage the unorganized bookmarks menu <br/>
         or try to remember long and unmemorizable URLs.
       </p>
       <div
@@ -119,7 +119,7 @@
         >
           <div class="shortcut-url">
             <div class="shortcut-url-host">
-              <img src="/assets/ico-lock.svg" alt="https" />
+              <img src="/assets/ico-lock.svg" alt="https"/>
               <span>my.new/</span>
             </div>
             <div id="trialShortcutKeyword" class="shortcut-url-keyword">
@@ -176,7 +176,7 @@
           (click)="changeDestination($event)"
         />
         <label for="buttonOpenPython">
-          <img src="/assets/app-icons/ico-python.svg" alt="python" width="24" />
+          <img src="/assets/app-icons/ico-python.svg" alt="python" width="24"/>
           <span>python</span>
         </label>
         <input
@@ -187,7 +187,7 @@
           (click)="changeDestination($event)"
         />
         <label for="buttonOpenBoard">
-          <img src="/assets/app-icons/ico-crayon.png" alt="board" [width]="24" />
+          <img src="/assets/app-icons/ico-crayon.png" alt="board" [width]="24"/>
           <span>whiteboard</span>
         </label>
         <input
@@ -198,7 +198,7 @@
           (click)="changeDestination($event)"
         />
         <label for="buttonOpenVideoCall">
-          <img src="/assets/app-icons/ico-video.png" alt="board" [width]="24" />
+          <img src="/assets/app-icons/ico-video.png" alt="board" [width]="24"/>
           <span>videocall</span>
         </label>
       </form>
@@ -292,17 +292,17 @@
       </div>
       <a href="https://whats.new" target="_blank" class="link-outer"
       >Go to Google's whats.new website
-        <span><img src="/assets/logo.svg" alt="outlink" width="12" /></span
+        <span><img src="/assets/logo.svg" alt="outlink" width="12"/></span
         ></a>
       <p>
         <strong>.new</strong> is google's brand new domain extension, which
-        focuses on creating something new online.<br /><br />
+        focuses on creating something new online.<br/><br/>
         We love the idea of expanding the value of the web, also expecting
-        more great products will join it.<br /><br />
+        more great products will join it.<br/><br/>
         However, due to the domain name system's structural restriction,
         this .new extension has a limitation in which the name's owner can
         easily monopolize user-favorite actions like play, create, note,
-        etc.<br /><br />
+        etc.<br/><br/>
         It's a useful corporate branding tool. But we wanted to develop this
         idea in more user-centric and practical ways, even while keeping its
         original philosophy.
@@ -311,7 +311,7 @@
   </div>
   <footer class="page-footer">
     <div class="page-footer-brand logo">
-      <img src="/assets/logo.svg" alt="logo" /><span class="logo-title"
+      <img src="/assets/logo.svg" alt="logo"/><span class="logo-title"
     >my.new</span
     >
     </div>
