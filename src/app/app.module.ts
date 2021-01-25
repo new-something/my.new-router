@@ -11,12 +11,16 @@ import {GuardService} from './service/auth/guard.service';
 import { SingleSignOutComponent } from './components/single-sign-out/single-sign-out.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { GoogleSignInComponent } from './components/google-sign-in/google-sign-in.component';
+import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent, canActivate: [GuardService]},
   {path: 's/github', component: GithubSignInComponent},
   {path: 's/google', component: GoogleSignInComponent},
   {path: 's/logout', component: SingleSignOutComponent},
+  {path: 's/terms-of-service', component: TermsOfServiceComponent},
+  {path: 's/privacy-policy', component: PrivacyPolicyComponent},
   {path: '**', component: RedirectLoadingComponent},
 ];
 
@@ -27,7 +31,9 @@ const routes: Routes = [
     GithubSignInComponent,
     SingleSignOutComponent,
     LandingComponent,
-    GoogleSignInComponent
+    GoogleSignInComponent,
+    TermsOfServiceComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
