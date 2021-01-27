@@ -12,7 +12,6 @@ import { SingleSignOutComponent } from './components/single-sign-out/single-sign
 import { LandingComponent } from './components/landing/landing.component';
 import { GoogleSignInComponent } from './components/google-sign-in/google-sign-in.component';
 import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
-import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent, canActivate: [GuardService]},
@@ -20,7 +19,6 @@ const routes: Routes = [
   {path: 's/google', component: GoogleSignInComponent},
   {path: 's/logout', component: SingleSignOutComponent},
   {path: 's/terms-of-service', component: TermsOfServiceComponent},
-  {path: 's/privacy-policy', component: PrivacyPolicyComponent},
   {path: '**', component: RedirectLoadingComponent},
 ];
 
@@ -33,7 +31,6 @@ const routes: Routes = [
     LandingComponent,
     GoogleSignInComponent,
     TermsOfServiceComponent,
-    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
