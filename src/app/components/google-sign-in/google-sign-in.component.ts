@@ -26,13 +26,13 @@ export class GoogleSignInComponent implements OnInit {
     this.httpClient.get<LoginCompleteResponse>(this.userService + '/google/login/complete?code=' + code).toPromise()
       .then(resp => {
         console.log(resp.jwt);
-        // const decodeToken = this.jwtHelperService.decodeToken(resp.jwt);
-        // console.log(decodeToken);
-        // localStorage.setItem('my-new-a', resp.jwt);
-        // const cookieText = 'my-new-a=' + resp.jwt + ';path=/;domain=my.new;max-age=15552000;secure;SameSite=Lax';
-        // console.log(cookieText);
-        // document.cookie = cookieText;
-        // window.location.href = this.shortcutUrl;
+        const decodeToken = this.jwtHelperService.decodeToken(resp.jwt);
+        console.log(decodeToken);
+        localStorage.setItem('my-new-a', resp.jwt);
+        const cookieText = 'my-new-a=' + resp.jwt + ';path=/;domain=my.new;max-age=15552000;secure;SameSite=Lax';
+        console.log(cookieText);
+        document.cookie = cookieText;
+        window.location.href = this.shortcutUrl;
       })
       .catch(err => console.log(err));
   }
