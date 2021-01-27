@@ -34,7 +34,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled'
+    }),
     HttpClientModule,
     JwtModule.forRoot({
       config: {
