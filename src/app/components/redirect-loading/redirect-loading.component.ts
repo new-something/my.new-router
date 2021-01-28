@@ -47,7 +47,6 @@ export class RedirectLoadingComponent implements OnInit {
 
     const destination = this.trialRouteService.get(path);
     if (destination) {
-      console.log('존재한다.');
       window.location.href = destination;
       return;
     }
