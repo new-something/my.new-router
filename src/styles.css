@@ -947,6 +947,14 @@ input[name="appListCatrgory"]:checked
   opacity: 0.6;
 }
 
+.section-cta .demo-video-desktop {
+  display: block;
+}
+
+.section-cta .demo-video-mobile {
+  display: none;
+}
+
 .section-cta .img-hero {
   -ms-flex-align: end;
   -ms-flex-pack: center;
@@ -1040,7 +1048,7 @@ input[name="appListCatrgory"]:checked
   visibility: hidden;
 }
 
-.section-trial .shortcut-url .shortcut-vars.active {
+.section-trial .shortcut-url .shortcut-vars.is-active {
   height: 32px;
   margin-top: 0;
   opacity: 1;
@@ -1079,7 +1087,7 @@ input[name="appListCatrgory"]:checked
   display: flex;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  padding: 15px;
+  padding: 15px 12px;
 }
 
 .section-trial .btn-group label img {
@@ -1130,6 +1138,26 @@ input[name="appListCatrgory"]:checked
 .section-whywebuilt a {
   display: block;
   margin: 20px 0 15px;
+}
+
+.section-terms-of-policy h2,
+.section-terms-of-policy h3 {
+  margin-top: 50px;
+}
+
+.table-of-index-item {
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+hr {
+  border: 1px solid #ddd;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.section-terms-of-policy li {
+  margin-bottom: 20px;
 }
 
 .section-apps {
@@ -1598,6 +1626,14 @@ input[name="appListCatrgory"]:checked
   }
 
   /* Index */
+
+  .section-cta .demo-video-desktop {
+    display: none;
+  }
+
+  .section-cta .demo-video-mobile {
+    display: block;
+  }
 
   .section-trial .btn-group {
     -ms-flex-pack: justify;
