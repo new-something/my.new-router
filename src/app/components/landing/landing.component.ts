@@ -53,7 +53,9 @@ export class LandingComponent implements OnInit {
 
   public changeDestination(event: any): void {
     const button = document.getElementById('buttonOpenInNewTab');
+    const label = document.getElementById('labelOpenInNewTab');
     button.setAttribute('href', '/' + event.target.value);
+    label.setAttribute('href', '/' + event.target.value);
   }
 
   public startGithubSignIn(): void {
