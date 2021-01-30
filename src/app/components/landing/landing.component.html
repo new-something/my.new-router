@@ -37,16 +37,16 @@
       <div class="signin-policies">
         By signing in, you agree to our
         <a
-          href="https://www.notion.so/mynew/my-new-Service-Policies-fb2768d7073c4428907948ed8a1786f7#9603139747cd4690948a8a4a0e29f05c"
+          href="/s/terms-of-service#terms-of-service"
           target="_blank"
         >terms of service</a
         >
         and
         <a
-          href="https://www.notion.so/mynew/my-new-Service-Policies-fb2768d7073c4428907948ed8a1786f7#9dce1ff5bc6c4986969f5b45feac4d21"
+          href="/s/terms-of-service#privacy-policy"
           target="_blank"
         >privacy policy</a
-        >. We care alot about your privacy data.
+        >. We care a lot about your privacy data.
       </div>
     </div>
   </div>
@@ -69,7 +69,7 @@
         <!-- <button data-feedback-fish data-feedback-fish-userid="유저아이디" class="navi-item">
           Give us feedbacks
           </button> -->
-        <a href="" class="navi-item">Help</a>
+        <a href="http://bit.ly/my-new-help-desk" target="_blank" class="navi-item">Help</a>
         <div
           id="buttonSignIn"
           class="btn"
@@ -85,10 +85,11 @@
   </header>
   <div class="page-body">
     <div class="section section-cta">
+      <h4 style="color: #444;">
+        .new, but it's personalized action-based URLs for everyone.
+      </h4>
       <h1>
-        <span>
-          Create something with your favorite apps by short & memorable URLs.
-        </span>
+        Create something with your favorite apps by short & memorable URLs.
       </h1>
       <p>
         Now, You don't need to rummage the unorganized bookmarks menu <br/>
@@ -100,6 +101,32 @@
         (click)="openSignInPopup()"
       >
         Create my own shortcuts <span>→</span>
+      </div>
+      <div class="demo-video-desktop" style="margin-top: 30px; margin-bottom: -30px">
+        <div style="width: 100%; height: 383px; float: none; clear: both; margin: 0 auto;">
+          <embed
+            src="https://www.youtube.com/embed/vWjhzyhRPVc?controls=0?autohide=1&autoplay=1"
+            wmode="transparent"
+            type="video/mp4"
+            width="100%" height="100%"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            title="Keyboard Cat"
+          >
+        </div>
+      </div>
+      <div class="demo-video-mobile" style="margin-top: 30px; margin-bottom: -30px">
+        <div style="width: 100%; height: 383px; float: none; clear: both; margin: 0 auto;">
+          <embed
+            src="https://www.youtube.com/embed/vC8inyjtf-I?controls=0?autohide=1&autoplay=1"
+            wmode="transparent"
+            type="video/mp4"
+            width="100%" height="100%"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            title="Keyboard Cat"
+          >
+        </div>
       </div>
     </div>
     <div class="section section-trial">
@@ -118,22 +145,24 @@
               <img src="/assets/ico-lock.svg" alt="https"/>
               <span>my.new/</span>
             </div>
-            <div id="trialShortcutKeyword" class="shortcut-url-keyword">
-              <div id="sheetShortcut" class="shortcut-vars active">
-                <img src="/assets/app-icons/ico-app-gsheet.svg" alt="spreadsheet"/>
-                <span>sheet</span>
-              </div>
-              <div id="pyShortcut" class="shortcut-vars">
-                <img src="/assets/app-icons/ico-python.svg" alt="python"/>
-                <span>py</span>
-              </div>
-              <div id="boardShortcut" class="shortcut-vars">
-                <img src="/assets/app-icons/ico-crayon.png" alt="whiteboard"/>
-                <span>board</span>
-              </div>
-              <div id="videocallShortcut" class="shortcut-vars">
-                <img src="/assets/app-icons/ico-video.png" alt="video call"/>
-                <span>videocall</span>
+            <div>
+              <div class="shortcut-url-keyword">
+                <div id="keySheet" class="shortcut-vars is-active">
+                  <img src="/assets/app-icons/ico-app-gsheet.svg" alt="spreadsheet"/>
+                  <span>sheet</span>
+                </div>
+                <div id="keyBoard" class="shortcut-vars">
+                  <img src="/assets/app-icons/ico-app-board.svg" alt="white board"/>
+                  <span>board</span>
+                </div>
+                <div id="keyPoll" class="shortcut-vars">
+                  <img src="/assets/app-icons/ico-app-fastpoll.svg" alt="fast poll"/>
+                  <span>poll</span>
+                </div>
+                <div id="keyVideoCall" class="shortcut-vars">
+                  <img src="/assets/app-icons/ico-app-gotalk.svg" alt="video call"/>
+                  <span>videocall</span>
+                </div>
               </div>
             </div>
           </div>
@@ -147,55 +176,59 @@
           Open in new tab
         </a>
       </div>
-      <form name="shortcutTrial" class="btn-group">
+      <form class="btn-group">
         <input
-          id="buttonOpenGSheet"
+          id="buttonOpenSheet"
           type="radio"
+          ng-model="shortcutKeyword"
           value="sheet"
           name="shortcutApp"
           checked
-          (click)="changeDestination($event)"
+          (click)="changeDestination($event); switchShortcutTrial($event)"
         />
-        <label for="buttonOpenGSheet">
+        <label for="buttonOpenSheet">
           <img
             src="/assets/app-icons/ico-app-gsheet.svg"
             alt="spreadsheet"
             width="24"
           />
-          <span>spreadsheet</span>
-        </label>
-        <input
-          id="buttonOpenPython"
-          type="radio"
-          value="py"
-          name="shortcutApp"
-          (click)="changeDestination($event)"
-        />
-        <label for="buttonOpenPython">
-          <img src="/assets/app-icons/ico-python.svg" alt="python" width="24"/>
-          <span>python</span>
+          <span>Spreadsheet</span>
         </label>
         <input
           id="buttonOpenBoard"
           type="radio"
+          ng-model="shortcutKeyword"
           value="board"
           name="shortcutApp"
-          (click)="changeDestination($event)"
+          (click)="changeDestination($event); switchShortcutTrial($event)"
         />
         <label for="buttonOpenBoard">
-          <img src="/assets/app-icons/ico-crayon.png" alt="board" [width]="24"/>
-          <span>whiteboard</span>
+          <img src="/assets/app-icons/ico-app-board.svg" alt="board" width="24"/>
+          <span>White board</span>
+        </label>
+        <input
+          id="buttonOpenPoll"
+          type="radio"
+          ng-model="shortcutKeyword"
+          value="poll"
+          name="shortcutApp"
+          (click)="changeDestination($event); switchShortcutTrial($event)"
+        />
+        <label for="buttonOpenPoll">
+          <img src="/assets/app-icons/ico-app-fastpoll.svg" alt="fast poll" [width]="24"/>
+          <span>Fast Poll</span>
         </label>
         <input
           id="buttonOpenVideoCall"
           type="radio"
+          ng-model="shortcutKeyword"
           value="videocall"
           name="shortcutApp"
-          (click)="changeDestination($event)"
+          (click)="changeDestination($event); switchShortcutTrial($event)"
         />
         <label for="buttonOpenVideoCall">
-          <img src="/assets/app-icons/ico-video.png" alt="board" [width]="24"/>
-          <span>videocall</span>
+          <img src="/assets/app-icons/ico-app-gotalk.svg" alt="video call" [width]="24"/>
+          <span>Video Call</span>
         </label>
       </form>
     </div>
@@ -311,10 +344,10 @@
     </div>
     <ul>
       <li>
-        <a routerLink="/s/terms-of-service">Terms of Service</a>
+        <a href="/s/terms-of-service#terms-of-service">Terms of Service</a>
       </li>
       <li>
-        <a routerLink="/s/terms-of-service">Privacy Policy</a>
+        <a href="/s/terms-of-service#privacy-policy">Privacy Policy</a>
       </li>
       <li><a href="mailto:team@my.new">Contact Us</a></li>
       <li class="feedbacks">
@@ -322,7 +355,7 @@
           Give us feedbacks
         </button>
       </li>
-      <li class="feedbacks"><a href="" class="navi-item">Help</a></li>
+      <li class="feedbacks"><a href="http://bit.ly/my-new-help-desk" target="_blank" class="navi-item">Help</a></li>
     </ul>
   </footer>
 </div>

@@ -22,6 +22,35 @@ export class LandingComponent implements OnInit {
     document.querySelector('#signinPopup').classList.remove('is-active');
   }
 
+  public switchShortcutTrial(event: any): void {
+    const sheet = document.querySelector('#keySheet');
+    const board = document.querySelector('#keyBoard');
+    const poll = document.querySelector('#keyPoll');
+    const videoCall = document.querySelector('#keyVideoCall');
+
+    sheet.classList.remove('is-active');
+    board.classList.remove('is-active');
+    poll.classList.remove('is-active');
+    videoCall.classList.remove('is-active');
+
+    switch(event.target.value) {
+      case 'sheet':
+        sheet.classList.add('is-active');
+        break;
+      case 'board':
+        board.classList.add('is-active');
+        break;
+      case 'poll':
+        poll.classList.add('is-active');
+        break;
+      case 'videocall':
+        videoCall.classList.add('is-active');
+        break;
+      default:
+        break;
+    }
+  }
+
   public changeDestination(event: any): void {
     const button = document.getElementById('buttonOpenInNewTab');
     button.setAttribute('href', '/' + event.target.value);

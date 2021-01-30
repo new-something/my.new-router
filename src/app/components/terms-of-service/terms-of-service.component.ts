@@ -20,11 +20,6 @@ export class TermsOfServiceComponent implements OnInit {
     document.querySelector('#signinPopup').classList.remove('is-active');
   }
 
-  public changeDestination(event: any): void {
-    const button = document.getElementById('buttonOpenInNewTab');
-    button.setAttribute('href', '/' + event.target.value);
-  }
-
   public startGithubSignIn(): void {
     window.location.href = 'https://github.com/login/oauth/authorize?scope=read:user&client_id=6d91f0584d549619c938';
   }

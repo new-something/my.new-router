@@ -7,19 +7,13 @@ export class TrialRouteService {
   private TRIAL_ROUTES = new Map();
 
   constructor() {
-    this.TRIAL_ROUTES.set('task', 'https://www.taskade.com/new');
-    this.TRIAL_ROUTES.set('mindmap', 'https://www.taskade.com/new/brainstorming?as=mindmap');
-    this.TRIAL_ROUTES.set('chart', 'https://live.amcharts.com/new');
-    this.TRIAL_ROUTES.set('note', 'https://quicknote.io/');
+    this.TRIAL_ROUTES.set('sheet', 'https://docs.google.com/spreadsheets/u/3/create');
+    this.TRIAL_ROUTES.set('board', 'https://board.new');
+    this.TRIAL_ROUTES.set('poll', 'https://fast-poll.com/new');
     this.TRIAL_ROUTES.set('videocall', 'https://gotalk.to/' + this.uuid());
     this.TRIAL_ROUTES.set('videocall/:chatRoomId', 'https://gotalk.to/');
-    this.TRIAL_ROUTES.set('meeting', 'https://doodle.com/create');
-    this.TRIAL_ROUTES.set('poll', 'https://fast-poll.com/new');
-    this.TRIAL_ROUTES.set('banner', 'https://canva.new');
-    this.TRIAL_ROUTES.set('board', 'https://board.new');
-    this.TRIAL_ROUTES.set('html', 'https://codesandbox.io/s/');
-    this.TRIAL_ROUTES.set('sheet', 'https://docs.google.com/spreadsheets');
-    this.TRIAL_ROUTES.set('py', 'https://repl.it/repls/BountifulNeatPackagedsoftware#main.py');
+    this.TRIAL_ROUTES.set('zoom', 'https://zoom.us/meeting/schedule');
+    this.TRIAL_ROUTES.set('event', 'https://calendar.google.com/calendar/u/0/r/eventedit');
   }
 
   get(path: string): string {
