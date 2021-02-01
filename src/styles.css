@@ -756,6 +756,19 @@ a.link-outer:active {
 .page-footer .feedbacks {
 	display: none
 }
+
+.page-body .btn-ph {
+  position: fixed; bottom: 20px; right: 20px;
+}
+
+.page-body .btn-ph img {
+	width: 250px; height: 54px; 
+}
+
+.page-footer .btn-ph {
+	display: none;
+}
+
 @media screen and (max-width: 960px) {
 	.page-header {
 		-ms-flex-align: center;
@@ -819,6 +832,13 @@ a.link-outer:active {
 		outline: 0;
 		padding: 0;
 		text-decoration: underline
+	}
+	.page-footer .btn-ph {
+		display: block;
+		position: relative;
+	}
+	.page-body .btn-ph {
+		display: none;
 	}
 	.shortcut-url {
 		font-size: 24px
