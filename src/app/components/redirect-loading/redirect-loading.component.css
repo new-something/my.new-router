@@ -74,7 +74,7 @@
   50% {
     -webkit-transform: translateY(50px);
     transform: translateY(50px);
-    background-color: #0066ff;
+    background-color: #000;
   }
   100% {
     -webkit-transform: translateY(0px);
