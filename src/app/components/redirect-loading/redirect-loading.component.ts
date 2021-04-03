@@ -21,11 +21,6 @@ export class RedirectLoadingComponent implements OnInit {
 
   ngOnInit(): void {
     const path = this.router.url.substr(1);
-    if (path.includes('.well-known/acme-challenge')) {
-      console.log('certbot checking');
-      return;
-    }
-
     if (this.authService.isAuthenticated()) {
       const url = this.appService + '/apis/users/destinations?keyword=' + path;
       const headers = new HttpHeaders()
