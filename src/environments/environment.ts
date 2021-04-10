@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   userService: 'http://localhost:8080',
+  userServerlessService: 'https://ocdaiir7mf.execute-api.us-east-1.amazonaws.com/test',
   appService: 'http://localhost:9090',
   shortcut: 'http://localhost:4300'
 };
