@@ -10,7 +10,7 @@ import {environment} from '../../../environments/environment';
 })
 export class GithubSignInComponent implements OnInit {
   private shortcutUrl: string = environment.shortcut;
-  private userService: string = environment.userService;
+  private userService: string = environment.userServerlessService;
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) {}
 
