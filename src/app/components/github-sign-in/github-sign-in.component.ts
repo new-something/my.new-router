@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../../environments/environment';
-import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-github-sign-in',
@@ -11,10 +10,9 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 })
 export class GithubSignInComponent implements OnInit {
   private shortcutUrl: string = environment.shortcut;
-  private userService: string = environment.userServerlessService;
+  private userService: string = environment.userService;
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute,
-              private jwtHelperService: JwtHelperService) {}
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     let code = '';
