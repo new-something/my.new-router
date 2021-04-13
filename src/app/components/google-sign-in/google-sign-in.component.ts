@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class GoogleSignInComponent implements OnInit {
   private shortcutUrl: string = environment.shortcut;
-  private userService: string = environment.userServerlessService;
+  private userService: string = environment.userService;
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
