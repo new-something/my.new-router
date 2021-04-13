@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
-import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-google-sign-in',
@@ -11,9 +10,8 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 })
 export class GoogleSignInComponent implements OnInit {
   private shortcutUrl: string = environment.shortcut;
-  private userService: string = environment.userService;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute,
-              private jwtHelperService: JwtHelperService) { }
+  private userService: string = environment.userServerlessService;
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     let code = '';
