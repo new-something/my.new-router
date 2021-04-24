@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  userService: 'http://localhost:8080',
   apiService: 'https://iktltf58kh.execute-api.us-east-1.amazonaws.com/test',
   shortcut: 'http://localhost:4300'
 };
