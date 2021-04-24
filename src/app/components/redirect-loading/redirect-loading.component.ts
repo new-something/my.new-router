@@ -11,8 +11,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./redirect-loading.component.css']
 })
 export class RedirectLoadingComponent implements OnInit {
-  private appServerlessService = environment.appServerlessService;
-  private appService = environment.appService;
+  private apiService = environment.apiService;
   private shortcut = environment.shortcut;
   history: string[] = [];
 
@@ -23,7 +22,7 @@ export class RedirectLoadingComponent implements OnInit {
   ngOnInit(): void {
     const path = this.router.url.substr(1);
     if (this.authService.isAuthenticated()) {
-      const url = this.appServerlessService + '/apis/users/destinations?keyword=' + path;
+      const url = this.apiService + '/apis/users/destinations?keyword=' + path;
       const headers = new HttpHeaders()
         .set('Authorization', 'Bearer ' + localStorage.getItem('my-new-a'));
       this.httpClient.get<DestinationResponse>(url, {headers}).subscribe(

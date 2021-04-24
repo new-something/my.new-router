@@ -10,7 +10,7 @@ import {environment} from '../../../environments/environment';
 })
 export class GithubSignInComponent implements OnInit {
   private shortcutUrl: string = environment.shortcut;
-  private userService: string = environment.userServerlessService;
+  private apiService: string = environment.apiService;
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) {}
 
@@ -22,7 +22,7 @@ export class GithubSignInComponent implements OnInit {
       error = params.error;
     });
 
-    this.httpClient.get<LoginCompleteResponse>(this.userService + '/github/login/complete?code=' + code).toPromise()
+    this.httpClient.get<LoginCompleteResponse>(this.apiService + '/github/login/complete?code=' + code).toPromise()
       .then(resp => {
         localStorage.setItem('my-new-a', resp.jwt);
         document.cookie = 'my-new-a=' + resp.jwt + ';path=/;domain=my.new;max-age=15552000;secure;SameSite=Lax';

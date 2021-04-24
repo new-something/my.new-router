@@ -5,9 +5,7 @@
 export const environment = {
   production: false,
   userService: 'http://localhost:8080',
-  userServerlessService: 'https://iktltf58kh.execute-api.us-east-1.amazonaws.com/test',
-  appServerlessService: 'https://iktltf58kh.execute-api.us-east-1.amazonaws.com/test',
-  appService: 'http://localhost:9090',
+  apiService: 'https://iktltf58kh.execute-api.us-east-1.amazonaws.com/test',
   shortcut: 'http://localhost:4300'
 };
 
